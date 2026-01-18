@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import PolicyViewer from './components/PolicyViewer';
 import { APPS } from './constants';
 import { PolicyType } from './types';
+import { LanguageProvider, useLanguage } from './i18n';
+import LanguageToggle from './components/LanguageToggle';
 
 // Wrapper component to extract params and find the app
 const PolicyRouteWrapper: React.FC<{ type: PolicyType }> = ({ type }) => {
@@ -19,6 +21,7 @@ const PolicyRouteWrapper: React.FC<{ type: PolicyType }> = ({ type }) => {
 };
 
 const Layout: React.FC = () => {
+  const { t } = useLanguage();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -31,15 +34,18 @@ const Layout: React.FC = () => {
         
         {/* Mobile Header */}
         <header className="md:hidden bg-white border-b border-slate-200 px-4 py-3 flex items-center justify-between sticky top-0 z-10">
-          <span className="font-bold text-slate-800">Privacy Hub</span>
-          <button 
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 text-slate-600 hover:bg-slate-100 rounded-md"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
+          <span className="font-bold text-slate-800">{t('hubTitle')}</span>
+          <div className="flex items-center space-x-2">
+            <LanguageToggle />
+            <button 
+              onClick={() => setSidebarOpen(true)}
+              className="p-2 text-slate-600 hover:bg-slate-100 rounded-md"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
         </header>
 
         <main className="flex-1 p-4 md:p-8 lg:p-12 overflow-y-auto">
@@ -50,7 +56,7 @@ const Layout: React.FC = () => {
               element={<PolicyRouteWrapper type={PolicyType.PRIVACY} />} 
             />
             <Route 
-              path="/app/:appId/terms" 
+              path="/app/:appId/service-agreement" 
               element={<PolicyRouteWrapper type={PolicyType.TERMS} />} 
             />
             <Route path="*" element={<Navigate to="/" replace />} />
@@ -70,7 +76,9 @@ const App: React.FC = () => {
   // Example URL: https://username.github.io/privacy-repo/#/app/my-app/privacy
   return (
     <HashRouter>
-      <Layout />
+      <LanguageProvider>
+        <Layout />
+      </LanguageProvider>
     </HashRouter>
   );
 };

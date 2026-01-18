@@ -1,6 +1,8 @@
 import React from 'react';
 import { APPS, DEVELOPER_NAME } from '../constants';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../i18n';
+import LanguageToggle from './LanguageToggle';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -9,6 +11,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   const location = useLocation();
+  const { t } = useLanguage();
 
   // Helper to check if a link is active
   const isActive = (path: string) => location.pathname.includes(path);
@@ -32,14 +35,17 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
       `}>
         <div className="p-6 border-b border-slate-100 flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-slate-800">Privacy Hub</h1>
+            <h1 className="text-xl font-bold text-slate-800">{t('hubTitle')}</h1>
             <p className="text-xs text-slate-500 uppercase tracking-wider mt-1">{DEVELOPER_NAME}</p>
           </div>
-          <button onClick={() => setIsOpen(false)} className="md:hidden text-slate-400">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="flex items-center space-x-3">
+            <LanguageToggle className="hidden md:flex" />
+            <button onClick={() => setIsOpen(false)} className="md:hidden text-slate-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <nav className="p-4 space-y-8 overflow-y-auto h-[calc(100vh-85px)]">
@@ -49,13 +55,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
               onClick={() => setIsOpen(false)}
               className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors ${location.pathname === '/' ? 'bg-slate-100 text-slate-900' : 'text-slate-600 hover:bg-slate-50'}`}
             >
-              Home
+              {t('home')}
             </Link>
           </div>
 
           <div>
             <h3 className="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-              Applications
+              {t('applications')}
             </h3>
             <div className="space-y-1">
               {APPS.map((app) => (
@@ -71,6 +77,30 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                    <span className="w-2 h-2 rounded-full bg-slate-300 mr-3" style={{ backgroundColor: isActive(`/app/${app.id}`) ? '#3b82f6' : '#cbd5e1' }}></span>
                    {app.name}
                   </Link>
+                  <div className="ml-9 mt-1 space-y-1">
+                    <Link
+                      to={`/app/${app.id}/service-agreement`}
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                        location.pathname.includes(`/app/${app.id}/service-agreement`)
+                          ? 'bg-blue-50 text-blue-700'
+                          : 'text-slate-500 hover:bg-slate-50'
+                      }`}
+                    >
+                      {t('termsOfService')}
+                    </Link>
+                    <Link
+                      to={`/app/${app.id}/privacy`}
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                        location.pathname.includes(`/app/${app.id}/privacy`)
+                          ? 'bg-blue-50 text-blue-700'
+                          : 'text-slate-500 hover:bg-slate-50'
+                      }`}
+                    >
+                      {t('privacyPolicy')}
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>

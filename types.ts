@@ -9,6 +9,10 @@ export interface PolicySection {
   content: string | string[]; // Can be a paragraph or a list of items
 }
 
+export type LanguagePolicies = {
+  [key in PolicyType]?: PolicySection[];
+};
+
 export interface AppProfile {
   id: string;
   name: string;
@@ -16,6 +20,7 @@ export interface AppProfile {
   description: string;
   lastUpdated: string;
   policies: {
-    [key in PolicyType]?: PolicySection[];
+    en: LanguagePolicies;
+    zh: LanguagePolicies;
   };
 }
