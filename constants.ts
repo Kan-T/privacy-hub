@@ -6,6 +6,8 @@ import { AppProfile, PolicyType } from './types';
 // =====================================================================
 
 export const DEVELOPER_NAME = "Dream Code Quadrant";
+export const DEVELOPER_COMPANY_EN = "Wuhan dream code quadrant Software Development Co., Ltd";
+export const DEVELOPER_COMPANY_ZH = "武汉梦码象限软件开发有限公司";
 export const DEVELOPER_EMAIL = "taokan@dreamcodeq.top"; // REPLACE WITH YOUR EMAIL
 
 export const APPS: AppProfile[] = [
@@ -17,6 +19,14 @@ export const APPS: AppProfile[] = [
     policies: {
       en: {
         [PolicyType.PRIVACY]: [
+          {
+            title: "Developer / Operator",
+            content: DEVELOPER_COMPANY_EN
+          },
+          {
+            title: "Contact Email",
+            content: DEVELOPER_EMAIL
+          },
           {
             title: "1. Introduction",
             content: `This Privacy Policy applies to the “Award Account” app (the “App”).
@@ -115,7 +125,7 @@ ${DEVELOPER_EMAIL}`
 Effective Date: 2026-01-18
 Updated Date: 2026-01-18
 App Name: Award Account
-Developer/Operator: ${DEVELOPER_NAME}
+Developer/Operator: ${DEVELOPER_COMPANY_EN}
 Contact: ${DEVELOPER_EMAIL}`
           },
           {
@@ -158,6 +168,14 @@ Contact: ${DEVELOPER_EMAIL}`
       },
       zh: {
         [PolicyType.PRIVACY]: [
+          {
+            title: "开发者/运营者",
+            content: DEVELOPER_COMPANY_ZH
+          },
+          {
+            title: "联系邮箱",
+            content: DEVELOPER_EMAIL
+          },
           {
             title: "一、引言",
             content: `本隐私政策适用于“奖励账本”（以下简称“本应用”）。
@@ -256,7 +274,7 @@ ${DEVELOPER_EMAIL}`
 生效日期：2026-01-18
 更新日期：2026-01-18
 应用名称：奖励账本
-开发者/运营者：${DEVELOPER_NAME}
+开发者/运营者：${DEVELOPER_COMPANY_ZH}
 联系方式：${DEVELOPER_EMAIL}`
           },
           {
