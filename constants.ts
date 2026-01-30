@@ -15,7 +15,7 @@ export const APPS: AppProfile[] = [
     id: "award-account",
     name: "奖励账本",
     description: "用于任务记录、积分/奖励统计与展示的工具。",
-    lastUpdated: "Jan 18, 2026",
+    lastUpdated: "Jan 30, 2026",
     policies: {
       en: {
         [PolicyType.PRIVACY]: [
@@ -28,109 +28,201 @@ export const APPS: AppProfile[] = [
             content: DEVELOPER_EMAIL
           },
           {
+            title: "Effective Date",
+            content: "January 30, 2026"
+          },
+          {
             title: "1. Introduction",
-            content: `This Privacy Policy applies to the “Award Account” app (the “App”).
-We respect your privacy and are committed to protecting it.
-
-The App is primarily a local-first tool: your core records (tasks, points, reward settings, histories) are stored locally on your device.
-However, the App includes advertising and analytics modules (currently uni-ad splash ads and uni statistics) which may process and transmit certain technical and usage information for ad delivery, measurement, anti-fraud, and app stability.
-
-If you do not agree to this Privacy Policy, please do not use the App.`
+            content: `"Award Account" (hereinafter referred to as "the App") is developed and operated by ${DEVELOPER_COMPANY_EN}. We understand the importance of your personal information and will do our best to protect your personal information security. Please read and understand this Privacy Policy carefully before using this App.`
           },
           {
-            title: "2. Data You Enter (Local Data)",
+            title: "2. Information We Collect",
+            content: `To ensure the normal operation of the App and advertising services, we and integrated third-party SDKs may collect the following information:`
+          },
+          {
+            title: "2.1 Device Information",
+            content: `| Information Type | Specific Content | Collection Purpose |
+|---|---|---|
+| Basic Device Info | Device model, brand, screen resolution | Adapt display for different devices |
+| System Info | OS version, system language | App compatibility and localization |
+| App Info | App version, app launch time | Statistical analysis and troubleshooting |
+| Crash Logs | Error information when app crashes | Locate and fix issues |`
+          },
+          {
+            title: "2.2 Device Identifiers",
+            content: `| Identifier Type | Description | Collection Purpose |
+|---|---|---|
+| OAID | Anonymous device identifier | Ad display and effectiveness statistics |
+| Android ID | System-assigned device identifier | Ad attribution and anti-fraud |
+| Advertising ID (AD_ID/GAID) | Google advertising identifier | Ad services (overseas version only) |
+| IDFA | iOS advertising identifier | Ad services (requires user authorization) |`
+          },
+          {
+            title: "2.3 Network Information",
+            content: `| Information Type | Specific Content | Collection Purpose |
+|---|---|---|
+| Network Status | WiFi/mobile data connection status | Optimize network request strategy |
+| Network Type | 2G/3G/4G/5G/WiFi | Adapt to different network environments |
+| IP Address | Device network IP | Ad service regional adaptation |`
+          },
+          {
+            title: "2.4 Storage Permission",
             content: [
-              "Content you create in the App (e.g., tasks, points, rewards, settings, histories) is stored locally on your device.",
-              "We do not operate a cloud sync service for your core records in the current released version, and we do not upload your core records to our own servers for storage."
+              "We use storage permission for:",
+              "• Cache ad materials to reduce repeated downloads and save your data",
+              "• Save app local data"
             ]
           },
           {
-            title: "3. Third-Party SDKs and Frameworks",
-            content: `The App is built on the uni-app / HTML5+ runtime provided by DCloud, and currently uses:
-- uni statistics (analytics)
-- uni-ad (advertising) — splash ads only in the current version
+            title: "3. Information We Do NOT Collect",
+            content: `To protect your privacy, we have explicitly prohibited the collection of the following sensitive information through technical measures:
 
-These SDKs/services may collect or process technical, usage, and advertising-related information.`
+| Information Type | Status |
+|---|---|
+| ❌ Installed app list | Not collected |
+| ❌ Running app list | Not collected |
+| ❌ Precise location | Not collected |
+| ❌ Coarse location | Not collected |
+| ❌ IMEI/MEID | Not collected |
+| ❌ IMSI | Not collected |
+| ❌ Phone number | Not collected |
+| ❌ MAC address | Not collected |
+| ❌ Contacts | Not collected |
+| ❌ SMS/Call records | Not collected |
+| ❌ Photo gallery | Not collected |`
           },
           {
-            title: "3.1 SDK Disclosure Table (Name / Data Collected / Purpose / Privacy Link)",
-            content: `| SDK Name | Data Collected (Examples) | Purpose | Link |
-|---|---|---|---|
-| DCloud uni-app / HTML5+ Runtime | Device information (device model, OS version, language), runtime/app information (app version, SDK/runtime version), network information (network type), diagnostics (crash logs, error logs), startup/operation logs | Runtime support, stability, diagnostics, basic statistical analysis | https://dcloud.io/license/appprivacy.html |
-| uni statistics (DCloud) | Device/app info (app version, runtime version), usage events (page views, basic feature usage, timestamps), diagnostics/performance data (crash logs, error metrics), network type | Analytics, performance monitoring, product improvement | https://dcloud.io/license/appprivacy.html |
-| uni-ad (DCloud) – Splash Ads (Current) | Advertising identifiers (Android AD_ID/GAID and/or OAID/Android ID depending on device/OS), IP address / network info (network type), device info (model, OS version, language), splash ad interaction data (ad request, impression, click, timestamps), anti-fraud signals | Serve splash ads, measure impressions/clicks, attribution and billing, frequency control, fraud prevention, monetization | https://dcloud.io/license/appprivacy.html |
-| Google AdMob (Future / Planned) | Advertising identifiers, IP address, device info, ad interaction data, diagnostics/performance data | Ad serving/measurement, attribution, fraud prevention | https://policies.google.com/privacy ; https://developers.google.com/admob/android/privacy/play-data-disclosure |
-| Pangle / 穿山甲 (Future / Planned) | Advertising identifiers, device info, network/IP, ad interaction data (impressions/clicks), (optional) coarse location if enabled | Ad delivery/measurement, attribution, anti-fraud | https://www.pangleglobal.com/en/privacy/enduser-en |
-| Tencent Youlianghui / 优量汇 (Future / Planned) | Advertising identifiers, device/app info, network/IP, ad interaction data | Ad delivery/measurement, attribution, anti-fraud | https://privacy.qq.com/ (Tencent Privacy Policy). Specific Youlianghui SDK privacy link will be added when enabled. |`
+            title: "4. Third-Party SDK Description",
+            content: `This App integrates the following third-party SDKs:`
           },
           {
-            title: "3.2 Future Integrations",
-            content: `Currently, the App uses uni-ad for splash advertising only.
-In future versions, we may integrate additional advertising networks and mediation partners (for example: Google AdMob, Pangle/穿山甲, Tencent Youlianghui/优量汇, etc.).
-If we enable any new SDKs/partners, we will update this Privacy Policy and the SDK Disclosure Table above with the SDK name, data collected, purpose, and the official privacy policy link.`
+            title: "4.1 DCloud uni-app Engine",
+            content: `**Provider:** Digital Paradise (Beijing) Network Technology Co., Ltd.
+**Purpose:** App runtime framework
+**Privacy Policy:** https://ask.dcloud.net.cn/protocol.html`
           },
           {
-            title: "4. How We Use Information",
-            content: [
-              "Provide and display splash ads, measure ad performance, and prevent fraud;",
-              "Analyze aggregated usage to improve features and stability;",
-              "Diagnose crashes and errors."
-            ]
+            title: "4.2 uni Statistics",
+            content: `**Provider:** Digital Paradise (Beijing) Network Technology Co., Ltd.
+**Purpose:** App statistical analysis, crash monitoring
+**Information Collected:** Device information, app launch information, crash logs
+**Privacy Policy:** https://ask.dcloud.net.cn/protocol.html`
           },
           {
-            title: "4.1 Local Core Records",
-            content: "We do NOT use your locally stored core records (your task/reward content) for advertising targeting because they are stored locally and not uploaded to our own servers in the current released version."
+            title: "4.3 uni-ad Advertising SDK",
+            content: `**Provider:** Digital Paradise (Beijing) Network Technology Co., Ltd.
+**Purpose:** Advertising display service
+**Information Collected:** Device identifiers (OAID, Android ID), network information, IP address
+**Privacy Policy:** https://uniad.dcloud.net.cn/privacy`
           },
           {
-            title: "5. Data Sharing",
-            content: "We do not sell your personal information. We may share or allow processing of technical/usage/advertising data described above by third-party SDK providers to provide advertising, analytics, and runtime support as listed in the SDK Disclosure Table."
-          },
-          {
-            title: "6. Permissions",
-            content: `Depending on platform behavior and enabled modules, the App may request permissions such as:
-- Network State / Wi‑Fi State: to detect connectivity for analytics/ad delivery.
-- Advertising ID access (Android AD_ID): to support advertising measurement and attribution.
+            title: "4.3.1 Currently Enabled Ad Networks (Domestic)",
+            content: `**Tencent Youlianghui (优量汇)**
+Provider: Shenzhen Tencent Computer Systems Co., Ltd.
+Privacy Policy: https://e.qq.com/dev/help_detail.html?cid=2005&pid=5983
 
-The App does not require access to your contacts, SMS, microphone, or camera for its core features.`
+**Fanlian (泛连)**
+Provider: Fanlian Network Technology Co., Ltd.
+Privacy Policy: Please refer to the provider's official privacy policy
+
+**Octopus Mobile Advertising (章鱼移动广告)**
+Provider: Octopus Mobile Advertising Technology Co., Ltd.
+Privacy Policy: Please refer to the provider's official privacy policy
+
+**Huaxia Leyou (华夏乐游)**
+Provider: Huaxia Leyou Network Technology Co., Ltd.
+Privacy Policy: Please refer to the provider's official privacy policy`
           },
           {
-            title: "7. Data Storage and Retention",
+            title: "4.3.2 Planned Ad Networks (Domestic)",
+            content: `The following ad networks are planned for future integration:
+• Huawei Ads (华为广告联盟)
+• Pangolin GroMore (穿山甲GroMore)
+• Sigmob Ad Network
+• Kuaishou Ads (快手广告联盟)
+• Baidu Baiqingteng Ads (百度百青藤广告联盟)
+• Juliyumeng (聚力阅盟)
+• AdScope Beizi Ads (AdScope倍孜广告)`
+          },
+          {
+            title: "4.3.3 Planned Ad Networks (International)",
+            content: `The following international ad networks are planned for future integration:
+• Pangle (Overseas Pangolin)
+• inmobi
+• Google AdMob
+• ironSource
+• Unity Ads
+• Mintegral
+• Liftoff
+• AppLovin`
+          },
+          {
+            title: "5. Purpose of Information Use",
             content: [
-              "Core records are stored locally on your device until you delete them or uninstall the App.",
-              "Analytics and advertising data may be retained by third-party providers according to their retention policies."
+              "The information we collect is only used for the following purposes:",
+              "• **Ensure normal app operation:** Device adaptation, performance optimization",
+              "• **Advertising services:** Display ads, measure ad effectiveness, prevent ad fraud",
+              "• **Statistical analysis:** Understand app usage, optimize product experience",
+              "• **Troubleshooting:** Locate and fix issues through crash logs"
             ]
           },
           {
-            title: "8. Your Choices",
+            title: "6. Information Storage and Security",
             content: [
-              "You may choose not to agree to this Privacy Policy; in that case, the App will exit and cannot be used.",
-              "You may manage ad personalization, reset advertising identifiers, or limit ad tracking via your device system settings (if supported).",
-              "You may uninstall the App at any time."
+              "**Storage Location:** Your personal data is primarily stored locally on your device",
+              "**Retention Period:** Data is retained only for as long as necessary to fulfill the collection purposes",
+              "**Security Measures:** We take reasonable technical and administrative measures to protect your information security"
             ]
           },
           {
-            title: "9. Changes to This Policy",
-            content: "We may update this Privacy Policy from time to time. Any changes will be posted on this page and will take effect immediately upon posting (or as otherwise stated)."
+            title: "7. Your Rights",
+            content: [
+              "You can:",
+              "• **Refuse authorization:** You can choose to disagree with the Privacy Policy on first launch, and the app will exit",
+              "• **Manage permissions:** Turn off related permissions at any time in system settings",
+              "• **Delete data:** Uninstalling the app will delete all locally stored data"
+            ]
+          },
+          {
+            title: "8. Protection of Minors",
+            content: "This App is suitable for users of all ages. We do not actively collect personal information from minors."
+          },
+          {
+            title: "9. Privacy Policy Updates",
+            content: "We may revise this policy from time to time. Updated policies will be prompted within the app. Please review regularly."
           },
           {
             title: "10. Contact Us",
-            content: `If you have any questions about this Privacy Policy, please contact:
-${DEVELOPER_EMAIL}`
+            content: `If you have any questions about this Privacy Policy, please contact us through:
+**Email:** ${DEVELOPER_EMAIL}
+**In-app Feedback:** Settings → Feedback`
+          },
+          {
+            title: "Appendix: Permission List",
+            content: `| Android Permission | Purpose |
+|---|---|
+| INTERNET | Access internet, load ads |
+| ACCESS_NETWORK_STATE | Detect network connection status |
+| ACCESS_WIFI_STATE | Detect WiFi connection status |
+| READ_EXTERNAL_STORAGE | Read ad cache |
+| WRITE_EXTERNAL_STORAGE | Write ad cache |
+| VIBRATE | Interaction feedback vibration |
+| AD_ID | Google advertising identifier |`
           }
         ],
         [PolicyType.TERMS]: [
           {
             title: "Version Info",
             content: `Service Agreement
-Effective Date: 2026-01-18
-Updated Date: 2026-01-18
+Effective Date: 2026-01-30
+Updated Date: 2026-01-30
 App Name: Award Account
 Developer/Operator: ${DEVELOPER_COMPANY_EN}
 Contact: ${DEVELOPER_EMAIL}`
           },
           {
             title: "1. Agreement",
-            content: "This agreement constitutes a legally binding contract between you and us regarding your use of Award Account. By clicking “Agree and Continue” on first launch or by otherwise using the app, you acknowledge that you have read and agreed to this agreement and the Privacy Policy."
+            content: "This agreement constitutes a legally binding contract between you and us regarding your use of Award Account. By clicking \"Agree and Continue\" on first launch or by otherwise using the app, you acknowledge that you have read and agreed to this agreement and the Privacy Policy."
           },
           {
             title: "2. Services",
@@ -177,109 +269,201 @@ Contact: ${DEVELOPER_EMAIL}`
             content: DEVELOPER_EMAIL
           },
           {
+            title: "生效日期",
+            content: "2026年1月30日"
+          },
+          {
             title: "一、引言",
-            content: `本隐私政策适用于“奖励账本”（以下简称“本应用”）。
-我们尊重你的隐私并致力于保护你的个人信息安全。
-
-本应用主要为本地优先工具：你的核心记录（任务、积分、奖励设置、历史记录）存储在你的设备本地。
-但本应用包含广告与分析模块（当前为 uni-ad 开屏广告与 uni 统计），相关模块可能为广告投放、效果衡量、反作弊与应用稳定性而处理并传输部分技术与使用信息。
-
-如果你不同意本隐私政策，请不要使用本应用。`
+            content: `「奖励账本」（以下简称"本应用"）由${DEVELOPER_COMPANY_ZH}开发和运营。我们深知个人信息对您的重要性，并会尽全力保护您的个人信息安全。请您在使用本应用前，仔细阅读并了解本隐私政策。`
           },
           {
-            title: "二、你在应用中输入的数据（本地数据）",
+            title: "二、我们收集的信息",
+            content: `为保障应用正常运行及广告服务，我们及接入的第三方SDK可能收集以下信息：`
+          },
+          {
+            title: "2.1 设备信息",
+            content: `| 信息类型 | 具体内容 | 收集目的 |
+|---|---|---|
+| 设备基本信息 | 设备型号、品牌、屏幕分辨率 | 适配不同设备的显示效果 |
+| 系统信息 | 操作系统版本、系统语言 | 应用兼容性和本地化 |
+| 应用信息 | 应用版本、应用启动时间 | 统计分析和问题排查 |
+| 崩溃日志 | 应用崩溃时的错误信息 | 定位和修复问题 |`
+          },
+          {
+            title: "2.2 设备标识符",
+            content: `| 标识符类型 | 说明 | 收集目的 |
+|---|---|---|
+| OAID | 匿名设备标识符 | 广告展示和效果统计 |
+| Android ID | 系统分配的设备标识 | 广告归因和防作弊 |
+| 广告标识符 (AD_ID/GAID) | Google 广告标识符 | 广告服务（仅限海外版本） |
+| IDFA | iOS 广告标识符 | 广告服务（需用户授权） |`
+          },
+          {
+            title: "2.3 网络信息",
+            content: `| 信息类型 | 具体内容 | 收集目的 |
+|---|---|---|
+| 网络状态 | WiFi/移动数据连接状态 | 优化网络请求策略 |
+| 网络类型 | 2G/3G/4G/5G/WiFi | 适配不同网络环境 |
+| IP地址 | 设备网络IP | 广告服务地域适配 |`
+          },
+          {
+            title: "2.4 存储权限",
             content: [
-              "你在本应用中创建的内容（如任务、积分、奖励、设置、历史记录）保存在你的设备本地。",
-              "当前已发布版本不提供核心记录的云同步服务，我们不会将你的核心记录上传至我们的服务器存储。"
+              "我们使用存储权限用于：",
+              "• 缓存广告素材，减少重复下载，节省您的流量",
+              "• 保存应用本地数据"
             ]
           },
           {
-            title: "三、第三方 SDK 与框架",
-            content: `本应用基于 DCloud 提供的 uni-app / HTML5+ 运行时构建，并且当前使用：
-- uni 统计（分析）
-- uni-ad（广告）——当前版本仅开屏广告
+            title: "三、我们不会收集的信息",
+            content: `为保护您的隐私，我们已通过技术手段明确禁止以下敏感信息的收集：
 
-这些 SDK/服务可能收集或处理与技术、使用及广告相关的信息。`
+| 信息类型 | 状态 |
+|---|---|
+| ❌ 已安装应用列表 | 不收集 |
+| ❌ 运行中应用列表 | 不收集 |
+| ❌ 精确地理位置 | 不收集 |
+| ❌ 粗略地理位置 | 不收集 |
+| ❌ IMEI/MEID | 不收集 |
+| ❌ IMSI | 不收集 |
+| ❌ 手机号码 | 不收集 |
+| ❌ MAC地址 | 不收集 |
+| ❌ 通讯录/联系人 | 不收集 |
+| ❌ 短信/通话记录 | 不收集 |
+| ❌ 相册/照片 | 不收集 |`
           },
           {
-            title: "3.1 SDK 披露表（名称 / 收集数据 / 用途 / 隐私链接）",
-            content: `| SDK 名称 | 收集的数据（示例） | 用途 | 链接 |
-|---|---|---|---|
-| DCloud uni-app / HTML5+ Runtime | 设备信息（设备型号、系统版本、语言），运行时/应用信息（应用版本、SDK/运行时版本），网络信息（网络类型），诊断信息（崩溃日志、错误日志），启动/运行日志 | 运行时支持、稳定性、诊断、基础统计分析 | https://dcloud.io/license/appprivacy.html |
-| uni 统计（DCloud） | 设备/应用信息（应用版本、运行时版本），使用事件（页面访问、基础功能使用、时间戳），诊断/性能数据（崩溃日志、错误指标），网络类型 | 数据分析、性能监控、产品改进 | https://dcloud.io/license/appprivacy.html |
-| uni-ad（DCloud）— 开屏广告（当前） | 广告标识符（Android AD_ID/GAID 和/或 OAID/Android ID，取决于设备/系统），IP 地址/网络信息（网络类型），设备信息（型号、系统版本、语言），开屏广告交互数据（请求、展示、点击、时间戳），反作弊信号 | 展示开屏广告、衡量展示/点击、归因与计费、频控、反作弊、变现 | https://dcloud.io/license/appprivacy.html |
-| Google AdMob（未来/计划） | 广告标识符、IP 地址、设备信息、广告交互数据、诊断/性能数据 | 广告投放/衡量、归因、反作弊 | https://policies.google.com/privacy ; https://developers.google.com/admob/android/privacy/play-data-disclosure |
-| Pangle / 穿山甲（未来/计划） | 广告标识符、设备信息、网络/IP、广告交互数据（展示/点击），（可选）启用时的粗略位置 | 广告投放/衡量、归因、反作弊 | https://www.pangleglobal.com/en/privacy/enduser-en |
-| Tencent Youlianghui / 优量汇（未来/计划） | 广告标识符、设备/应用信息、网络/IP、广告交互数据 | 广告投放/衡量、归因、反作弊 | https://privacy.qq.com/（腾讯隐私政策）。启用后将补充优量汇 SDK 的具体隐私链接。 |`
+            title: "四、第三方SDK说明",
+            content: `本应用接入以下第三方SDK：`
           },
           {
-            title: "3.2 未来集成",
-            content: `当前版本仅使用 uni-ad 的开屏广告。
-未来版本中，我们可能接入更多广告网络与聚合合作方（例如：Google AdMob、Pangle/穿山甲、Tencent Youlianghui/优量汇 等）。
-如启用新的 SDK/合作方，我们将更新本隐私政策及上述 SDK 披露表，补充 SDK 名称、收集数据、用途与官方隐私政策链接。`
+            title: "4.1 DCloud uni-app 引擎",
+            content: `**提供方：** 数字天堂（北京）网络技术有限公司
+**用途：** 应用运行框架
+**隐私政策：** https://ask.dcloud.net.cn/protocol.html`
           },
           {
-            title: "四、我们如何使用信息",
-            content: [
-              "提供并展示开屏广告、衡量广告效果并防止作弊；",
-              "分析汇总后的使用情况以改进功能与稳定性；",
-              "诊断崩溃与错误。"
-            ]
+            title: "4.2 uni统计",
+            content: `**提供方：** 数字天堂（北京）网络技术有限公司
+**用途：** 应用统计分析、崩溃监控
+**收集信息：** 设备信息、应用启动信息、崩溃日志
+**隐私政策：** https://ask.dcloud.net.cn/protocol.html`
           },
           {
-            title: "4.1 本地核心记录",
-            content: "我们不会使用你本地存储的核心记录（你的任务/奖励内容）用于广告定向，因为这些数据存储在本地且在当前已发布版本中不会上传至我们的服务器。"
+            title: "4.3 uni-ad 广告SDK",
+            content: `**提供方：** 数字天堂（北京）网络技术有限公司
+**用途：** 广告展示服务
+**收集信息：** 设备标识符（OAID、Android ID）、网络信息、IP地址
+**隐私政策：** https://uniad.dcloud.net.cn/privacy`
           },
           {
-            title: "五、数据共享",
-            content: "我们不会出售你的个人信息。为提供广告、分析与运行时支持，我们可能向第三方 SDK 提供方共享或允许其处理上述技术/使用/广告数据，具体见 SDK 披露表。"
-          },
-          {
-            title: "六、权限",
-            content: `根据平台行为与启用模块，本应用可能请求以下权限（示例）：
-- 网络状态 / Wi‑Fi 状态：用于检测网络连接以支持分析/广告投放。
-- 访问广告标识符（Android AD_ID）：用于广告衡量与归因。
+            title: "4.3.1 已开通广告商（国内）",
+            content: `**腾讯优量汇广告SDK**
+提供方：深圳市腾讯计算机系统有限公司
+隐私政策：https://e.qq.com/dev/help_detail.html?cid=2005&pid=5983
 
-本应用核心功能不需要访问你的通讯录、短信、麦克风或相机。`
+**泛连广告SDK**
+提供方：泛连网络技术有限公司
+隐私政策：请参阅提供方官方隐私政策
+
+**Octopus章鱼移动广告SDK**
+提供方：章鱼移动广告技术有限公司
+隐私政策：请参阅提供方官方隐私政策
+
+**华夏乐游广告SDK**
+提供方：华夏乐游网络技术有限公司
+隐私政策：请参阅提供方官方隐私政策`
           },
           {
-            title: "七、数据存储与保留",
+            title: "4.3.2 计划开通广告商（国内）",
+            content: `以下广告商计划在未来版本中接入：
+• 华为广告联盟
+• 穿山甲GroMore
+• Sigmob广告联盟
+• 快手广告联盟
+• 百度百青藤广告联盟
+• 聚力阅盟
+• AdScope倍孜广告`
+          },
+          {
+            title: "4.3.3 计划开通广告商（国外）",
+            content: `以下国外广告商计划在未来版本中接入：
+• Pangle（海外穿山甲）
+• inmobi
+• Google AdMob（谷歌广告）
+• ironSource
+• Unity Ads
+• Mintegral
+• Liftoff
+• AppLovin`
+          },
+          {
+            title: "五、信息使用目的",
             content: [
-              "核心记录保存在你的设备本地，直至你删除数据或卸载本应用。",
-              "分析与广告数据可能由第三方提供方按照其保留策略进行存储与保留。"
+              "我们收集的信息仅用于以下目的：",
+              "• **保障应用正常运行：** 适配设备、优化性能",
+              "• **广告服务：** 展示广告、统计广告效果、防止广告作弊",
+              "• **统计分析：** 了解应用使用情况、优化产品体验",
+              "• **问题排查：** 通过崩溃日志定位和修复问题"
             ]
           },
           {
-            title: "八、你的选择",
+            title: "六、信息存储与安全",
             content: [
-              "你可以选择不同意本隐私政策；此时应用将退出且无法使用。",
-              "你可以在设备系统设置中管理个性化广告、重置广告标识符或限制广告追踪（如系统支持）。",
-              "你可以随时卸载本应用。"
+              "**存储位置：** 您的个人数据主要存储在您的设备本地",
+              "**存储期限：** 仅在实现收集目的所必需的期限内保留",
+              "**安全措施：** 我们采取合理的技术和管理措施保护您的信息安全"
             ]
           },
           {
-            title: "九、政策变更",
-            content: "我们可能不时更新本隐私政策。变更将发布在本页面，并在发布后立即生效（或另行说明）。"
+            title: "七、您的权利",
+            content: [
+              "您可以：",
+              "• **拒绝授权：** 首次启动时可选择不同意隐私政策，应用将退出",
+              "• **管理权限：** 在系统设置中随时关闭相关权限",
+              "• **删除数据：** 卸载应用将删除本地存储的所有数据"
+            ]
+          },
+          {
+            title: "八、未成年人保护",
+            content: "本应用适合所有年龄段用户使用。我们不会主动收集未成年人的个人信息。"
+          },
+          {
+            title: "九、隐私政策更新",
+            content: "我们可能适时修订本政策。更新后的政策将在应用内提示，请您定期查阅。"
           },
           {
             title: "十、联系我们",
-            content: `如对本隐私政策有任何疑问，请联系：
-${DEVELOPER_EMAIL}`
+            content: `如您对本隐私政策有任何疑问，请通过以下方式联系我们：
+**邮箱：** ${DEVELOPER_EMAIL}
+**应用内反馈：** 设置 → 反馈`
+          },
+          {
+            title: "附录：权限清单",
+            content: `| Android 权限 | 用途说明 |
+|---|---|
+| INTERNET | 访问互联网，加载广告 |
+| ACCESS_NETWORK_STATE | 检测网络连接状态 |
+| ACCESS_WIFI_STATE | 检测WiFi连接状态 |
+| READ_EXTERNAL_STORAGE | 读取广告缓存 |
+| WRITE_EXTERNAL_STORAGE | 写入广告缓存 |
+| VIBRATE | 交互反馈振动 |
+| AD_ID | Google广告标识符 |`
           }
         ],
         [PolicyType.TERMS]: [
           {
             title: "版本信息",
             content: `《服务协议》
-生效日期：2026-01-18
-更新日期：2026-01-18
+生效日期：2026-01-30
+更新日期：2026-01-30
 应用名称：奖励账本
 开发者/运营者：${DEVELOPER_COMPANY_ZH}
 联系方式：${DEVELOPER_EMAIL}`
           },
           {
             title: "一、协议说明",
-            content: "本协议是你与我们之间就你使用【奖励账本】提供的产品与服务所订立的协议，具有法律效力。你在首次启动时点击“同意并继续”或以其他方式实际使用本应用，即视为你已阅读并同意本协议及《隐私政策》。"
+            content: "本协议是你与我们之间就你使用【奖励账本】提供的产品与服务所订立的协议，具有法律效力。你在首次启动时点击'同意并继续'或以其他方式实际使用本应用，即视为你已阅读并同意本协议及《隐私政策》。"
           },
           {
             title: "二、服务内容",
