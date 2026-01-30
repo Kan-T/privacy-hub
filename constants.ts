@@ -59,11 +59,15 @@ export const APPS: AppProfile[] = [
           },
           {
             title: "2.3 Network Information",
-            content: `| Information Type | Specific Content | Collection Purpose |
-|---|---|---|
-| Network Status | WiFi/mobile data connection status | Optimize network request strategy |
-| Network Type | 2G/3G/4G/5G/WiFi | Adapt to different network environments |
-| IP Address | Device network IP | Ad service regional adaptation |`
+            content: `Based on regional regulations and app distribution channels, we may collect the following network information:
+
+| Information Type | China Mainland Version | Overseas Version | Purpose |
+|---|---|---|---|
+| Network Connection Status | ✅ Collected | ✅ Collected | Optimize network requests |
+| Network Type | ✅ Collected | ✅ Collected | Adapt to different network environments |
+| IP Address | ❌ Not collected | ✅ Collected | Ad service regional adaptation |
+
+**Note**: Versions downloaded from China mainland app stores (Xiaomi, vivo, OPPO, Huawei, etc.) will NOT collect your IP address. Versions downloaded from overseas channels (Google Play, etc.) may collect IP address for ad regional adaptation.`
           },
           {
             title: "2.4 Storage Permission",
@@ -75,21 +79,20 @@ export const APPS: AppProfile[] = [
           },
           {
             title: "3. Information We Do NOT Collect",
-            content: `To protect your privacy, we have explicitly prohibited the collection of the following sensitive information through technical measures:
+            content: `Regardless of which version you use, we will NOT collect the following sensitive information:
 
 | Information Type | Status |
 |---|---|
 | ❌ Installed app list | Not collected |
 | ❌ Running app list | Not collected |
-| ❌ Precise location | Not collected |
-| ❌ Coarse location | Not collected |
-| ❌ IMEI/MEID | Not collected |
-| ❌ IMSI | Not collected |
+| ❌ Precise/Coarse location | Not collected |
+| ❌ IMEI/MEID/IMSI | Not collected |
 | ❌ Phone number | Not collected |
 | ❌ MAC address | Not collected |
 | ❌ Contacts | Not collected |
 | ❌ SMS/Call records | Not collected |
-| ❌ Photo gallery | Not collected |`
+
+**Additional commitment for China Mainland version**: IP address is NOT collected.`
           },
           {
             title: "4. Third-Party SDK Description",
@@ -300,11 +303,15 @@ Contact: ${DEVELOPER_EMAIL}`
           },
           {
             title: "2.3 网络信息",
-            content: `| 信息类型 | 具体内容 | 收集目的 |
-|---|---|---|
-| 网络状态 | WiFi/移动数据连接状态 | 优化网络请求策略 |
-| 网络类型 | 2G/3G/4G/5G/WiFi | 适配不同网络环境 |
-| IP地址 | 设备网络IP | 广告服务地域适配 |`
+            content: `根据您所在地区的法规要求和应用分发渠道，我们可能收集以下网络信息：
+
+| 信息类型 | 中国大陆版本 | 海外版本 | 用途 |
+|---|---|---|---|
+| 网络连接状态 | ✅ 收集 | ✅ 收集 | 优化网络请求 |
+| 网络类型 | ✅ 收集 | ✅ 收集 | 适配不同网络环境 |
+| IP地址 | ❌ 不收集 | ✅ 收集 | 广告服务地域适配 |
+
+**说明**：通过小米、vivo、OPPO、华为等中国大陆应用商店下载的版本，我们不会收集您的 IP 地址。通过 Google Play 等海外渠道下载的版本，可能收集 IP 地址用于广告地域适配。`
           },
           {
             title: "2.4 存储权限",
@@ -316,21 +323,20 @@ Contact: ${DEVELOPER_EMAIL}`
           },
           {
             title: "三、我们不会收集的信息",
-            content: `为保护您的隐私，我们已通过技术手段明确禁止以下敏感信息的收集：
+            content: `无论您使用哪个版本，我们均不会收集以下敏感信息：
 
 | 信息类型 | 状态 |
 |---|---|
 | ❌ 已安装应用列表 | 不收集 |
 | ❌ 运行中应用列表 | 不收集 |
-| ❌ 精确地理位置 | 不收集 |
-| ❌ 粗略地理位置 | 不收集 |
-| ❌ IMEI/MEID | 不收集 |
-| ❌ IMSI | 不收集 |
+| ❌ 精确/粗略地理位置 | 不收集 |
+| ❌ IMEI/MEID/IMSI | 不收集 |
 | ❌ 手机号码 | 不收集 |
 | ❌ MAC地址 | 不收集 |
 | ❌ 通讯录/联系人 | 不收集 |
 | ❌ 短信/通话记录 | 不收集 |
-| ❌ 相册/照片 | 不收集 |`
+
+**中国大陆版本额外承诺**：不收集 IP 地址。`
           },
           {
             title: "四、第三方SDK说明",
